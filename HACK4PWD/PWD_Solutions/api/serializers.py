@@ -9,34 +9,20 @@ class usersSerializer (serializers.ModelSerializer):
         fields =['first_name', 'last_name','username', 'password', 'email', 'phone_number', 'county', 'dob', 'gender']
         extra_kwargs ={'password': {'write_only':True}}
 
-        def create(self, validated_data):
-            user=Users(
-                first_name= validated_data['first_name'],
-                last_name = validated_data['last_name'],
-                username = validated_data['username'],
-                email= validated_data['email'],
-                phone_number = validated_data['phone_number'],
-                county = validated_data['county'],
-                dob = validated_data['dob'],
-                gender =validated_data['gender']
-            )
-            user.set_password(validated_data['password'])
+    def create(self, validated_data):
+        user=Users(
+            first_name= validated_data['first_name'],
+            last_name = validated_data['last_name'],
+            username = validated_data['username'],
+            email= validated_data['email'],
+            phone_number = validated_data['phone_number'],
+            county = validated_data['county'],
+            dob = validated_data['dob'],
+            gender =validated_data['gender']
+        )
+        user.set_password(validated_data['password'])
+        print('User Details',user)
 
-            # user.set_password(validated_data['password'])
-            user.save()
-            # user =get_user_model().objects.create_user(**validated_data)
-            return user
+        user.save()
+        return user
 
-
-
-            # user= Users.objects.create_user(
-                # first_name= validated_data['first_name'],
-                # last_name = validated_data['last_name'],
-                # username = validated_data['username'],
-                # password= make_password(validated_data['password']),
-                # email= validated_data['email'],
-                # phone_number = validated_data['phone_number'],
-                # county = validated_data['county'],
-                # dob = validated_data['dob'],
-                # gender =validated_data['gender']
-            # )
