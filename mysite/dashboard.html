@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWD_Friend - Homepage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="custom-header">
+        <div class="logo-section">
+          <img src="logo.png" alt="Logo" class="logo">
+          <h1>PWD_Friend</h1>
+          <span class="current-date" id="currentDate"></span>
+        </div>
+        <div class="header-icons">
+          <div class="notification">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0iYmxhY2siIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDFhMiAyIDAgMCAwLTEuOTggMi4yODRBNyA3IDAgMCAwIDUgMTB2OEg0YTEgMSAwIDEgMCAwIDJoMTZhMSAxIDAgMSAwIDAtMmgtMXYtOGE3IDcgMCAwIDAtNS4wMi02LjcxNlExNCAzLjE0NCAxNCAzYTIgMiAwIDAgMC0yLTJtMiAyMWExIDEgMCAwIDEtMSAxaC0yYTEgMSAwIDEgMSAwLTJoMmExIDEgMCAwIDEgMSAxIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIC8+Cjwvc3ZnPg==" alt="Notifications" class="icon">
+            <span class="badge">22</span>
+          </div>
+          <img onclick="toggleMenu()" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xOS4xNCAxMi45NGMuMDQtLjMuMDYtLjYxLjA2LS45NGMwLS4zMi0uMDItLjY0LS4wNy0uOTRsMi4wMy0xLjU4YS40OS40OSAwIDAgMCAuMTItLjYxbC0xLjkyLTMuMzJhLjQ5LjQ5IDAgMCAwLS41OS0uMjJsLTIuMzkuOTZjLS41LS4zOC0xLjAzLS43LTEuNjItLjk0bC0uMzYtMi41NGEuNDg0LjQ4NCAwIDAgMC0uNDgtLjQxaC0zLjg0Yy0uMjQgMC0uNDMuMTctLjQ3LjQxbC0uMzYgMi41NGMtLjU5LjI0LTEuMTMuNTctMS42Mi45NGwtMi4zOS0uOTZjLS4yMi0uMDgtLjQ3IDAtLjU5LjIyTDIuNzQgOC44N2MtLjEyLjIxLS4wOC40Ny4xMi42MWwyLjAzIDEuNThjLS4wNS4zLS4wOS42My0uMDkuOTRzLjAyLjY0LjA3Ljk0bC0yLjAzIDEuNThhLjQ5LjQ5IDAgMCAwLS4xMi42MWwxLjkyIDMuMzJjLjEyLjIyLjM3LjI5LjU5LjIybDIuMzktLjk2Yy41LjM4IDEuMDMuNyAxLjYyLjk0bC4zNiAyLjU0Yy4wNS4yNC4yNC40MS40OC40MWgzLjg0Yy4yNCAwIC40NC0uMTcuNDctLjQxbC4zNi0yLjU0Yy41OS0uMjQgMS4xMy0uNTYgMS42Mi0uOTRsMi4zOS45NmMuMjIuMDguNDcgMCAuNTktLjIybDEuOTItMy4zMmMuMTItLjIyLjA3LS40Ny0uMTItLjYxek0xMiAxNS42Yy0xLjk4IDAtMy42LTEuNjItMy42LTMuNnMxLjYyLTMuNiAzLjYtMy42czMuNiAxLjYyIDMuNiAzLjZzLTEuNjIgMy42LTMuNiAzLjYiIC8+Cjwvc3ZnPg==" alt="Settings" class="icon">
+          <div class="profile-menu" id="profile-menu">
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+          <div class="profile-avatar">DM</div>
+        </div>
+    </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Explore Sections</h2>
+      <ul class="sidebar-menu">
+        <li><a href="#" class="sidebar-link" data-target="education"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+Cgk8cGF0aCBmaWxsPSIjMDE1NzliIiBkPSJNMTE4LjAzIDEwMi4zMkw3Mi4yOSAxMjNjLTIuODIgMS4zMy01Ljc2IDEuMi04LjQ2LS4zNkw2LjA5IDkzLjMyYy0xLjY1LTEuMDYtMi4xNC0yLjYxLTIuMDQtMy42OXMuMzUtMi4yNSAzLjI1LTMuMDlsNC4yOC0xLjU4bDU3LjkyIDMxLjU3bDQxLjE2LTE2LjgyeiIgLz4KCTxwYXRoIGZpbGw9IiNmNWY1ZjUiIGQ9Ik03MS43NCAxMTkuNjlhNy45NSA3Ljk1IDAgMCAxLTcuMjYtLjI2TDguMTEgOTEuMDNjLS44LS40NC0xLjA0LTEuNDUtLjU2LTIuMjNjMS4yNC0yLjA1IDMuNTItOC41My0uMjQtMTMuOTFsNjMuNjYgMzAuNjV6IiAvPgoJPHBhdGggZmlsbD0iIzk0YzZkNiIgZD0ibTExNS41OSA5OS45OGwtNDMuODUgMTkuNzFjLTEuNDUuNjMtNC4zNCAxLjc1LTcuNjctLjQ5YzIuNjMuMTkgNC40OC0uOSA1LjQzLTIuNjdjLjkzLTEuNzIuNjUtNC41NC0uNDgtNi4xM2MtLjY5LS45Ni0yLjU0LTIuNDktMy4zNS0zLjM1TDExMy4xIDg4LjVjNC4yLTEuNzMgOC4xNC44NiA4Ljc3IDQuMDFjLjcgMy41Ni0zLjg0IDYuNDctNi4yOCA3LjQ3IiAvPgoJPHBhdGggZmlsbD0iIzAxNTc5YiIgZD0ibTExNy43OCA4Ni45NmwtNDUuMjcgMjAuMmMtMi44NSAxLjEzLTYuMDQuOTgtOC43Ny0uNEw1LjkgNzcuMzhjLS41Ni0uMjgtMS4zOS0xLjA1LTEuNzItMi4xYy0uNTQtMS43NS4xNC0zLjk1IDIuMTktNC42NWw2Mi42OCAzMS45NWw0Mi45Mi0xOC4zN3oiIC8+Cgk8cGF0aCBmaWxsPSIjMDA5MWVhIiBkPSJtMTIxLjE5IDg5Ljg5bC00LjkzLTEuNzlsLTEwLjE2LjU5bC0zMy41OCAxNC45OWMtMi44NSAxLjEzLTYuMDQuOTgtOC43Ny0uNEw1LjkgNzMuOTFjLTEuNDktLjc2LTEuMTctMi45Ny40Ny0zLjI4bDQxLjY5LTE4LjY1YzEuMTktLjIyIDIuNDEtLjA5IDMuNTIuMzhsNTkuNDkgMjguMzZzOS40NSA2LjQ3IDEwLjEyIDkuMTciIC8+Cgk8cGF0aCBmaWxsPSIjNjE2MTYxIiBkPSJNMTA1LjUzIDg4Ljk4czYuMjYtMi40NSAxMS4xOC0yLjIzczYuNjMgMy42NyA2LjYzIDMuNjdjLS45My00LjIzLTUuMy02LjM5LTUuMy02LjM5bC02NS0zMi43M2MtLjQ1LS4xOS0yLjExLS41OC00LjY2LjQ3Yy0yLjA2Ljg1LTguNzkgNC04Ljc5IDR6IiAvPgoJPHBhdGggZmlsbD0iIzQyNDI0MiIgZD0iTTEyMy42MiA5MS4yMmMtLjQ3LTEuODctMS42My0zLjg3LTMuNzctNC44NGMtMi44Mi0xLjI3LTYuODQtLjk0LTkuNDEuNGwtNC45MSAyLjE4djMuNDZsNi4yMS0yLjc2YzYuMDQtMi42OSA4LjcyIDEuMzQgOC45NSAyLjI5Yy45NiAzLjg3LS45IDYuMTEtNi4zOSA4LjYzbC04LjkyIDQuMDJ2My40OGwxMC4yNi00LjU3YzQuNTQtMS44MiA5LjcyLTUuMjQgNy45OC0xMi4yOSIgLz4KCTxwYXRoIGZpbGw9IiMwMTU3OWIiIGQ9Ik0zMy4wMSA5MC4zMUwxNS43NCA2Ni40NGwyLjcxLTEuMjFsMTkuNDMgMjYuN3ptMjIuMTUgMTFsLTMuMDgtMi40NGw1My40NS0xMC45MXYxLjc1bC03LjQ5IDIuODR6IiAvPgoJPHBhdGggZmlsbD0iIzljY2M2NSIgZD0iTTE0LjggNDYuMThMODIuMzEgMzQuOWwyOS40OSAzMi40N2MxLjQ5IDEuNTcuNjggNC4xNy0xLjQ0IDQuNmwtNjkuNyAxNC4zeiIgLz4KCTxwYXRoIGZpbGw9IiM2ODlmMzgiIGQ9Ik0xMTAuMzYgNjkuMTdMNDEuMTQgODMuMTlsLS4yMiAzLjNsNjkuNDQtMTQuMjRjMS45Ni0uNDEgMi43OC0yLjY1IDEuNzEtNC4yM2MtLjM4LjU2LS45NiAxLTEuNzEgMS4xNW0zLjczIDE1LjEzYy43MyAxLjE2LjA3IDIuNjktMS4yNyAyLjk2TDQ5LjEgMTAwLjE4Yy0zLjgzLjc5LTcuNTktMS43Mi03LjkzLTUuNjJjLS4yOS0zLjMgMS45NC02LjI5IDUuMTktNi45N2w2MS4yOC0xMy43NnoiIC8+Cgk8cGF0aCBmaWxsPSIjNjE2MTYxIiBkPSJNNTUuNTkgODAuMUwzMC4yMSA0My43OGwtMTQuNDggMy44M2MtMy4zNSAzLjMzLTIuMSA4LjgtMi4xIDguOFMzNS44IDkxLjk5IDM5LjMgOTYuNTRzOC42MSAzLjg0IDguNjEgMy44NGw4LjYzLTEuNzRsLS45LTE2LjF6IiAvPgoJPHBhdGggZmlsbD0iIzQyNDI0MiIgZD0iTTU1LjU5IDgwLjM0TDQzLjQgODIuODZjLTMuMzMuNzUtMy45MyAzLjg4LTMuOTMgMy44OEwxMC4wNCA0NC41N3MtNC4xOSA1LjA3LTEuNDEgOS4zOEwzOS4zIDk2LjU0YzMuMzUgNC43NyA4LjYxIDMuODggOC42MSAzLjg4bDguNjMtMS43NGwtLjg5LTE1Ljc4eiIgLz4KCTxwYXRoIGZpbGw9IiNiOWU0ZWEiIGQ9Ik0xMTAuMjUgODNjLjMxLjY4LS4wOSAxLjQ3LS44MiAxLjYyTDQ4LjUgOTcuMTJjLTMuODMuNzktNi41NC0xLjc1LTYuNC01LjIxYy4xOC00LjM3IDIuNjMtNi4yMiA1Ljg3LTYuODlsNjEuMjMtMTIuNTFzLTIuMDggMi4zNC0uNDkgNi43MmMuNTQgMS41MSAxLjEyIDIuODUgMS41NCAzLjc3IiAvPgoJPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDI0MjQyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMi4wNyIgZD0iTTQ1LjIxIDgzLjdMMTkuMSA0Ni43NiIgLz4KCTxwYXRoIGZpbGw9IiM0MjQyNDIiIGQ9Ik00Ny4yNiA2Ny45NUwxMy42OCA1MS4wM2wtMS4zNiAyLjY4bDM4LjggMTkuNzd6IiAvPgoJPHBhdGggZmlsbD0iIzY4OWYzOCIgZD0ibTEwOC43OSA2NC4wM2wtMi40Ni0yLjdMNjguNSA3OC42OUw0Ny4yNiA2OC4xOGwzLjYyIDUuMThsMTQuMDcgNy4xOWwxMC40OC0xLjYxeiIgLz4KCTxwYXRoIGZpbGw9IiNjNjI4MjgiIGQ9Ik0xMTguMDIgNTcuMzVMNzIuMjkgNzguMDNjLTIuODIgMS4zMy01Ljc2IDEuMi04LjQ2LS4zNkw2LjA5IDQ4LjM1Yy0xLjY1LTEuMDYtMi4xNC0yLjYxLTIuMDQtMy42OXMuMzUtMi4yNSAzLjI1LTMuMDlsMi43MS0xbDU5LjMyIDI5LjExbDQ4LjE3LTE5LjkzeiIgLz4KCTxwYXRoIGZpbGw9IiNmNWY1ZjUiIGQ9Ik03MS43MyA3NC43MmE3Ljk1IDcuOTUgMCAwIDEtNy4yNi0uMjZMOC4xIDQ2LjA2Yy0uOC0uNDQtMS4wNC0xLjQ1LS41Ni0yLjIzYzEuMjQtMi4wNSAzLjUyLTguNTMtLjI0LTEzLjkxbDYyLjI0IDMxLjY2eiIgLz4KCTxwYXRoIGZpbGw9IiM5NGM2ZDYiIGQ9Ik0xMTUuNTggNTUuMDFMNzEuNzMgNzQuNzJjLTEuNDUuNjMtNC4zNCAxLjc1LTcuNjctLjQ5YzIuNjMuMTkgNC40OC0uOSA1LjQzLTIuNjdjLjkzLTEuNzIuNjUtNC41NC0uNDgtNi4xM2MtLjY5LS45Ni0yLjU0LTIuNDktMy4zNS0zLjM1bDQ3LjQzLTE4LjU1YzQuMi0xLjczIDguMTQuODYgOC43NyA0LjAxYy43IDMuNTYtMy44NCA2LjQ3LTYuMjggNy40NyIgLz4KCTxwYXRoIGZpbGw9IiNjNjI4MjgiIGQ9Im0xMTcuNzggNDEuOTlsLTQ1LjI3IDIwLjJjLTIuODUgMS4xMy02LjA0Ljk4LTguNzctLjRMNS44OSAzMi40MWMtLjYtLjMtMS41LTEuMDctMS43OS0yLjE2Yy0uNDMtMS42Mi4xMy0zLjc1IDIuMjYtNC41OWw1My4wMS0xMS4yM3oiIC8+Cgk8cGF0aCBmaWxsPSIjZjQ0MzM2IiBkPSJtMTIxLjE4IDQ0LjkybC00LjkzLTEuNzlsLTEwLjE2LjU5bC0zMy41OCAxNC45OWMtMi44NSAxLjEzLTYuMDQuOTgtOC43Ny0uNEw1Ljg5IDI4LjkzYy0xLjQ5LS43Ni0uOTYtMi43Ny40Ny0zLjI4bDQxLjctMTguNjRjMS4xOS0uMjIgMi40MS0uMDkgMy41Mi4zOGw1OS40OSAyOC4zNnM5LjQ0IDYuNDYgMTAuMTEgOS4xNyIgLz4KCTxwYXRoIGZpbGw9IiM2MTYxNjEiIGQ9Ik0xMDUuNTMgNDRzNS4yMS0xLjgzIDEwLjEzLTEuNjFzNy42OSAzLjA1IDcuNjkgMy4wNWMtMS4wMS00LjUyLTUuMy02LjM5LTUuMy02LjM5bC02NS0zMi43M2MtLjQ1LS4xOS0yLjExLS41OC00LjY2LjQ3Yy0yLjA2Ljg1LTguNzkgNC04Ljc5IDR6IiAvPgoJPHBhdGggZmlsbD0iIzQyNDI0MiIgZD0iTTExMS40OCA0MS44Nkw0NC45NyA4LjMxbDIuMi0uOTlsNjcuNjQgMzMuOXoiIC8+Cgk8cGF0aCBmaWxsPSIjNDI0MjQyIiBkPSJNMTIzLjYxIDQ2LjI1Yy0uNDctMS44Ny0xLjI2LTMuNjgtMy40OS00LjYyYy0yLjg1LTEuMi01LjQ1LTEuNDUtOS42OS4xOGwtNC45MSAyLjE4djMuNDZsNi4yMS0yLjc2YzMuMTUtMS40OCA3Ljc5LTEuMTYgOC45NSAyLjI5YzEuMjcgMy43OC0uOSA2LjExLTYuMzkgOC42M2wtOC45MiA0LjAydjMuNDhsMTAuMjYtNC41N2M0LjU1LTEuODIgOS43My01LjI0IDcuOTgtMTIuMjkiIC8+Cjwvc3ZnPg==" class="icon">Education</a></li>
+        <li><a href="#" class="sidebar-link" data-target=""><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0id2hpdGUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTggN2E0IDQgMCAxIDEgOCAwYTQgNCAwIDAgMS04IDBtMCA2YTUgNSAwIDAgMC01IDVhMyAzIDAgMCAwIDMgM2gxMmEzIDMgMCAwIDAgMy0zYTUgNSAwIDAgMC01LTV6IiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIC8+Cjwvc3ZnPg==" class="icon"> Profile</a></li>
+        <li><a href="#" class="sidebar-link" data-target="employment-solutions"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yNCAwYTggOCAwIDEgMS00LjkwNiAxNC4zMmwtNC43NzQgNC43NzRhOCA4IDAgMSAxLTEuNDE0LTEuNDE0bDQuNzc0LTQuNzc0QTggOCAwIDAgMSAyNCAwTTggMThhNiA2IDAgMSAwIDAgMTJhNiA2IDAgMCAwIDAtMTJNMjQgMmE2IDYgMCAxIDAgMCAxMmE2IDYgMCAwIDAgMC0xMiIgLz4KCTxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMzIgMjB2MTJIMjBWMjB6bS0yIDJoLTh2OGg4ek0xMiAwdjEySDBWMHptLTIgMkgydjhoOHoiIGNsYXNzPSJvdWlJY29uX19maWxsU2Vjb25kYXJ5IiAvPgo8L3N2Zz4=" class="icon"> Employment </a></li>
+        <li><a href="#" class="sidebar-link" data-target="rights"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Im0yLjMgMjAuMjhsOS42LTkuNmwtMS40LTEuNDJsLS43Mi43MWEuOTk2Ljk5NiAwIDAgMS0xLjQxIDBsLS43MS0uNzFhLjk5Ni45OTYgMCAwIDEgMC0xLjQxbDUuNjYtNS42NmEuOTk2Ljk5NiAwIDAgMSAxLjQxIDBsLjcxLjcxYy4zOS4zOS4zOSAxLjAyIDAgMS40MWwtLjcxLjY5bDEuNDIgMS40M2EuOTk2Ljk5NiAwIDAgMSAxLjQxIDBjLjM5LjM5LjM5IDEuMDMgMCAxLjQybDEuNDEgMS40MWwuNzEtLjcxYy4zOS0uMzkgMS4wMy0uMzkgMS40MiAwbC43LjcxYy4zOS4zOS4zOSAxLjAzIDAgMS40MmwtNS42NSA1LjY1Yy0uMzkuMzktMS4wMy4zOS0xLjQyIDBsLS43LS43YS45OS45OSAwIDAgMSAwLTEuNDJsLjctLjcxbC0xLjQxLTEuNDFsLTkuNjEgOS42MWEuOTk2Ljk5NiAwIDAgMS0xLjQxIDBjLS4zOS0uMzktLjM5LTEuMDMgMC0xLjQyTTIwIDE5YTIgMiAwIDAgMSAyIDJ2MUgxMnYtMWEyIDIgMCAwIDEgMi0yeiIgLz4KPC9zdmc+" class="icon">Rights & Legislation</a></li>
+        <li><a href="#" class="sidebar-link" data-target="assistive-tech"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMC4wMjEgMS4wMjFoNnYyaC02ek0yMC4wNCA3LjQxbDEuNDM0LTEuNDM0bC0xLjQxNC0xLjQxNGwtMS40MzMgMS40MzNBOC45OSA4Ljk5IDAgMCAwIDcuNTMgNS44ODFsMS40MiAxLjQ0YTcuMDQgNy4wNCAwIDAgMSA0LjA2LTEuM2wuMDEuMDAxdjYuOThsNC45NTMgNC45NThBNy4wMDEgNy4wMDEgMCAwIDEgNi4wMSAxMy4wMjFoM2wtNC00bC00IDRoM0E5IDkgMCAxIDAgMjAuMDQgNy40MSIgLz4KPC9zdmc+" class="icon"> Daily Assistive Technologies</a></li>
+        <li><a href="#" class="sidebar-link" data-target="transport"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMCAyMS4zNXYtNS43bDEuNC00cS4xMjUtLjI3NS4zNjMtLjQ2MlQxMi4zNSAxMWg3LjNxLjM1IDAgLjU4OC4xODh0LjM2Mi40NjJsMS40IDR2NS43cTAgLjI3NS0uMTg3LjQ2M1QyMS4zNSAyMmgtLjdxLS4yNzUgMC0uNDYyLS4xODdUMjAgMjEuMzV2LS44NWgtOHYuODVxMCAuMjc1LS4xODcuNDYzVDExLjM1IDIyaC0uN3EtLjI3NSAwLS40NjItLjE4N1QxMCAyMS4zNW0yLTYuODVoOGwtLjctMmgtNi42em0xIDRxLjQyNSAwIC43MTMtLjI4OFQxNCAxNy41dC0uMjg4LS43MTJUMTMgMTYuNXQtLjcxMi4yODhUMTIgMTcuNXQuMjg4LjcxM3QuNzEyLjI4N202IDBxLjQyNSAwIC43MTMtLjI4OFQyMCAxNy41dC0uMjg4LS43MTJUMTkgMTYuNXQtLjcxMi4yODhUMTggMTcuNXQuMjg4LjcxM3QuNzEyLjI4N002IDE0di0yaDJ2MnptNS02VjZoMnYyek02IDE4di0yaDJ2MnptMCA0di0yaDJ2MnptLTQgMFY4aDVWMmgxMHY3aC0yVjRIOXY2SDR2MTJ6IiAvPgo8L3N2Zz4=" class="icon"> PWD-Friendly Transport</a></li>
+        <li><a href="#" class="sidebar-link" data-target="travel"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNDggNDgiPgoJPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiPgoJCTxwYXRoIGZpbGw9IndoaXRlIiBkPSJtMTEgMTQuOTk5bC02IDFjMS42My03LjUxNCA2LjM2NC05Ljk5MyAxMS0xMGMyLjk5Ny0uMDA1IDUuOTUyIDEuMDI2IDggMmMyLjA0OC0uOTc0IDUtMiA4LTJjNC42MTEgMCA5LjM3IDIuNDg2IDExIDEwbC02LTFjLjU1OSAyLjEgMS43ODggNS43OTIgMCA5Yy0yLjk4LTIuNjczLTkuODctNi43MDktMTMtOWMtMy4xMyAyLjI5MS0xMC4wMiA2LjMyNy0xMyA5Yy0xLjc4OC0zLjIwNy0uNTU5LTYuOSAwLTkiIC8+CgkJPHBhdGggZD0iTTI0IDE1Yy0uNzU1IDMuODg5LTEuODExIDEzLjUzMyAwIDIxIiAvPgoJCTxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTIgNDJoMjRjLTQuNzg3LTQuNTg1LTctNS45OTUtMTItNnMtMTAuMTA4IDMuMzgyLTEyIDYiIC8+Cgk8L2c+Cjwvc3ZnPg==" class="icon"> PWD-Friendly Travel Destinations</a></li>
+        <li><a href="#" class="sidebar-link" data-target="community"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTcgMTh2LTFhNSA1IDAgMCAxIDUtNXYwYTUgNSAwIDAgMSA1IDV2MU0xIDE4di0xYTMgMyAwIDAgMSAzLTN2MG0xOSA0di0xYTMgMyAwIDAgMC0zLTN2MG0tOC0yYTMgMyAwIDEgMCAwLTZhMyAzIDAgMCAwIDAgNm0tOCAyYTIgMiAwIDEgMCAwLTRhMiAyIDAgMCAwIDAgNG0xNiAwYTIgMiAwIDEgMCAwLTRhMiAyIDAgMCAwIDAgNCIgLz4KPC9zdmc+" class="icon"> Community</a></li>
+        <!-- <li><a href="#"><img src="certificates-icon.svg" class="icon"> Certificates</a></li> -->
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <section id="education" class="content-div active">
+        <h2>Education</h2>
+        <p>Explore accessible schools, universities, and learning institutions that cater to the needs of PWDs.</p>
+        <div>
+            <div>
+                <div>
+                    <div class="schools-container">
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Kenya Association for the Intellectually Handicapped</p>
+                            <p>Cell Phone <span>0722926918</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Users and Survivors of Psychiatry of Kenya</p>
+                            <p>Contact: <span>0791952925</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Women Challenged to challenge</p>
+                            <p>Contact: <span>0725868450</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>United Disabled Persons of Kenya</p>
+                            <p>Contact: <span>0722126197</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>This Ability Consulting</p>
+                            <p>Contact: <span>07203882177</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Action Network for the Disabled</p>
+                            <p>Contact: <span>0715613602</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Association for the Physically Disabled of Kenya</p>
+                            <p>Contact: <span>0202058034</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Short Stature Society of Kenya</p>
+                            <p>Email: <span>shortstatureofkenya@gmail.com</span></p>
+                        </div>
+                        <div class="school">
+                            <img src="placeholder.png" alt="school1">
+                            <p>Signs TV</p>
+                            <p>Contact: <span>0722407366</span></p>
+                        </div>
+                        <div class="school">
+                          <img src="placeholder.png" alt="school1">
+                          <p>Gifted Community Center ,Kibera</p>
+                          <p>Contact: <span>0725244703</span></p>
+                        </div>
+                        <div class="school">
+                          <img src="placeholder.png" alt="school1">
+                          <p>Cheshire Disability Services Kenya</p>
+                          <p>Contact: <span>07780637323</span></p>
+                        </div>
+                        <div class="school">
+                          <img src="placeholder.png" alt="school1">
+                          <p>Women & Realities of Disability Society of Kenya</p>
+                          <p>Contact: <span>0729926360</span></p>
+                        </div>
+                        <div class="school">
+                          <img src="placeholder.png" alt="school1">
+                          <p>Kenyan Paraplegic Organization</p>
+                          <p>Contact: <span>07202514325</span></p>
+                        </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>A.I.C Kajiado Child Center</p>
+                        <p>Contact: <span>0203547759</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>The Action Foundation</p>
+                        <p>Email: <span>info@theactionfoundationkenya.org</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Volunteer Action for Change Kenya</p>
+                        <p>Contact: <span>0770050626</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>CBM Kenya</p>
+                        <p>Contact: <span>0731090014</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Kenya Union of Blind</p>
+                        <p>Contact: <span>0714443391</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Africa Braille Center</p>
+                        <p>Email: <span>abckenya@nbnet.co.ke</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>The Kenya Society for the Blind</p>
+                        <p>Contact: <span>0704326668</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>New Age for The Visually Impaired</p>
+                        <p>Contact: <span>0715739099</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Gatundu North Youth in Actions for Persons With Disability</p>
+                        <p>Contact: <span>0723446753</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Federation of Deaf Women Empowerment Network Kenya</p>
+                        <p>Contact: <span>0726623758</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Kenya National Deaf Women Peace Network</p>
+                        <p>Contact: <span>0721725188</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Positive Exposure Kenya</p>
+                        <p>Contact: <span>0724087683</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Nairobi Cerebral Palsy Football Club</p>
+                        <p>Contact: <span>07244332931</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Spina Bifida Hydrocephalus</p>
+                        <p>Contact: <span>0715200413</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Kenya National Association of the Deaf</p>
+                        <p>Email: <span>info@knad.or.ke</span></p>
+                      </div>
+                      <div class="school">
+                        <img src="placeholder.png" alt="school1">
+                        <p>Wajir East Disabled Welfare Group</p>
+                        <p>Contact: <span>0721652589</span></p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <!-- <div>
+                <h3>Visual Impairement</h3>
+            </div>
+            <div>
+                <h3>Speech Impairement</h3>
+            </div>
+            <div>
+                <h3>Mobility Impairement</h3>
+            </div>
+            <div>
+                <h3>Mental Disorder</h3>
+            </div> -->
+        </div>
+      </section>
+
+      <section id="employment-solutions" class="content-div" >
+        <h2>Employment </h2>
+        <p>Learn about tools, platforms, and strategies that enable accessible work environments for PWDs.</p>
+        <iframe src="https://rizikisource.org/" frameborder="0"></iframe>
+      </section>
+
+      <section id="rights" class="content-div">
+        <h2>Rights & Legislation</h2>
+        <p>Stay informed about the laws and policies that protect and empower persons with disabilities.</p>
+        <ul>
+          <li><a href="http://www.parliament.go.ke/sites/default/files/2024-02/THE%20PERSONS%20WITH%20DISABILITIES%20%28AMENDMENT%29%20BILL%2C%202023%20%282%29.pdf" target="_blank">Persons With Disabilities Bill 2023</a></li>
+          <li><a href="https://www.un.org/development/desa/disabilities/wp-content/uploads/sites/15/2019/11/Kenya_Persons-with-Disability-Act.pdf" target="_blank">Persons with Disabilities Act 2023</a></li>
+          <li><a href="https://cdn.sida.se/app/uploads/2021/05/07125814/rights-of-persons-with-disabilities-kenya.pdf" target="_blank">Disability Rights in Kenya</a></li>
+          <li><a href="http://www.parliament.go.ke/sites/default/files/2020-09/persons%20with%20disabilities%20(A)%20Bill,%202020.pdf" target="_blank">Persons With Disabilities Bill 2020</a></li>
+          <li><a href="https://www.klrc.go.ke/index.php/constitution-of-kenya/113-chapter-four-the-bill-of-rights/part-3-specific-application-of-rights/220-54-persons-with-disabilities" target="_blank">Persons with Disabilities Rights</a></li>
+        </ul>
+      </section>
+
+      <section id="assistive-tech" class="content-div" >
+        <h2>Daily Assistive Technologies</h2>
+        <p>Discover the latest technologies designed to assist PWDs in their everyday lives.</p>
+      </section>
+
+      <section id="transport" class="content-div">
+        <h2>PWD-Friendly Transport</h2>
+        <p>Browse transportation options, including accessible matatus, buses, and trains.</p>
+        <iframe src="https://acemobility.co.ke/" frameborder="0"></iframe>
+      </section>
+
+      <section id="travel" class="content-div">
+        <h2>PWD-Friendly Travel Destinations</h2>
+        <p>Explore parks, hotels, and other travel destinations accessible to persons with disabilities.</p>
+        <iframe src="https://planetofhotels.com/en/kenya/nairobi/hotels/with-facilities-for-disabled-guests" frameborder="0"></iframe>
+      </section>
+
+      <section id="community" class="content-div">
+        <h2>Community</h2>
+        <p>Get to talk to other people facing similar conditions.</p>
+        <div>
+          <div>
+            <h3>Facebook</h3>
+            <p><a href="https://www.facebook.com/share/g/amLVdvRvMK56N1uV/" target="_blank">Disability Forum Kenya Chapter</a></p>
+            <p><a href="https://www.facebook.com/adf4africa/" target="_blank">Disabled Parents Forum</a></p>
+          </div>
+          <div>
+            <h3>Instagram</h3>
+          </div>
+          <div>
+            <h3>X</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 PWD_Friend | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

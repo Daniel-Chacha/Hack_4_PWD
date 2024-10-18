@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PWD_Friend</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="loginForm" method="POST">
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <label><input type="checkbox" id="rememberMe"> Remember Me</label>
+        <button type="submit">Login</button>
+      </form>
+      <p>Dont have an account? <a href="signup.html">Sign up here</a></p>
+      <a href="dashboard.html">Home</a>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent the page from refreshing
+        
+        // Collect form data
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        // const rememberMe = document.getElementById('rememberMe').checked;
+        
+        const loginData = { email, password, };
+        
+        try {
+          // Send the data to the backend using fetch()
+          const response = await fetch('http://127.0.0.1:8000/login/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData),
+          });
+        
+          if (response.ok) {
+            const result = await response.json();
+            
+            window.location.href="dashboard.html";
+            alert('Login successful!');
+            console.log(result); // Optional: Inspect the response from the server
+          } else {
+            const error = await response.json();
+            alert(`Error: ${error.message || 'Login failed'}`);
+          }
+        } catch (err) {
+          console.error('Request failed', err);
+          alert('An error occurred. Please try again later.');
+        }
+        });
+    </script>
+  </body>
+</html>
