@@ -18,15 +18,15 @@
       <p>Dont have an account? <a href="signup.html">Sign up here</a></p>
       <a href="dashboard.html">Home</a>
     </div>
-    <!-- <script src="script.js"></script> -->
+  
     <script>
       document.getElementById('loginForm').addEventListener('submit', async function (event) {
-        event.preventDefault(); // Prevent the page from refreshing
+        event.preventDefault(); 
         
         // Collect form data
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        // const rememberMe = document.getElementById('rememberMe').checked;
+        
         
         const loginData = { email, password, };
         
@@ -44,8 +44,8 @@
             const result = await response.json();
             
             window.location.href="dashboard.html";
-            alert('Login successful!');
-            console.log(result); // Optional: Inspect the response from the server
+            //alert('Login successful!');
+            //console.log(result); 
           } else {
             const error = await response.json();
             alert(`Error: ${error.message || 'Login failed'}`);

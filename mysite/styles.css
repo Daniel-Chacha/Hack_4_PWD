@@ -273,10 +273,11 @@
     width: 100px;
     height: 200px;
     flex: 1 1 300px;
-    background-color: #ddd;
+    background-color: #00ffff;
     border-radius: 10px;
    
 }
+.school 
 
 iframe{
   width: 100%;
@@ -333,4 +334,3 @@ iframe{
   font-weight: bold;
  
 }
-
